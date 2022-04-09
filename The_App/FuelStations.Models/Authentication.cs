@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace FuelStation.Models {
     public class Authentication : BaseEntity {
-        public string AdminPass { get; set; }
-        public string ManagerPass { get; set; }
-        public string StaffPass { get; set; }
-        public string CashierPass { get; set; }
+        public string AdminPassword { get; set; }
+        public string ManagerPassword { get; set; }
+        public string CashierPassword { get; set; }
+        public string StaffPassword { get; set; }
+
     }
 }

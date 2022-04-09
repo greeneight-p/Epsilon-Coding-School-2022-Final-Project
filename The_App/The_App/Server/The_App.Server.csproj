@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\FuelStation.EF\FuelStation.EF.csproj" />
+    <ProjectReference Include="..\..\FuelStations.Models\FuelStation.Models.csproj" />
     <ProjectReference Include="..\Client\The_App.Client.csproj" />
     <ProjectReference Include="..\Shared\The_App.Shared.csproj" />
   </ItemGroup>

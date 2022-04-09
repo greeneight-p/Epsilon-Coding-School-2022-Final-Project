@@ -1,9 +1,13 @@
 ﻿@page "/"
 @using The_App.Client.Shared.Layouts
+@using The_App.Shared
 @*@page "/fetchdata"*@
 @layout LoginLayout
-
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
 @inject NavigationManager navManager
+@using FuelStation.Models
+@using static FuelStation.Models.Enumerations
 
 <h3>Login</h3>
 <section class="vh-100">
@@ -17,29 +21,31 @@
         </div>
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-
-          <form style="width: 23rem;">
-
+          <EditForm Model="@LoginViewModel" style="width: 23rem;">
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
-            <div class="form-outline mb-4">
-              <input  @bind="username" type="text" id="form2Example18" class="form-control form-control-lg" />
-              <label class="form-label"  for="form2Example18">Username</label>
-            </div>
+             <div class="form-outline mb-4">
+             <label class="form-label"  for="form2Example18">Username</label>
+                <InputSelect @bind-Value="LoginViewModel.Type" id="form2Example18" class="form-control form-control-lg">
+                            @foreach (var type in Enum.GetValues(typeof(EmployeeType))) {
+                            <option value="@type">@type</option>
+                        }
+                </InputSelect>
+             </div>
 
             <div class="form-outline mb-4">
-              <input @bind="password" type="password" id="form2Example28" class="form-control form-control-lg" />
+              <input @bind="LoginViewModel.Password" type="password" id="form2Example28" class="form-control form-control-lg" />
               <label class="form-label" for="form2Example28">Password</label>
             </div>
 
             <div class="pt-1 mb-4">
               <button class="btn btn-info btn-lg btn-block" @onclick="LogIn"type="button">Login</button>
             </div>
-
+        </EditForm>
 @*            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
             <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>*@
 
-          </form>
+        
 
         </div>
 
@@ -59,31 +65,40 @@
     public int empType { get; set; }
     public int password { get; set; }
     public string username { get; set; }
+    public LoginViewModel LoginViewModel { get; set; } = new();
 
     async void LogIn() {
 
-
-        //if(password == 0) {
-        //    MyApp.SetLayout(typeof(AdminLayout));
-        //    navManager.NavigateTo("/index");
-        //}
-
-        switch (password) {
-            case 0:
-                MyApp.SetLayout(typeof(AdminLayout));
-                navManager.NavigateTo("/index");
+        string output = new string(LoginViewModel.Password.ToCharArray().Reverse().ToArray());
+        bool result = false;
+        switch (LoginViewModel.Type) {
+            case EmployeeType.Admin:
+                result = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{LoginViewModel.Type}/{output}");                
+                if (result) {
+                    MyApp.SetLayout(typeof(AdminLayout));
+                    navManager.NavigateTo("/index");
+                }
                 break;
-            case 1:
-                MyApp.SetLayout(typeof(ManagerLayout));
-                navManager.NavigateTo("/index");
+            case EmployeeType.Manager:
+                result = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{LoginViewModel.Type}/{output}");
+                if (result) {
+                    MyApp.SetLayout(typeof(ManagerLayout));
+                    navManager.NavigateTo("/index");
+                }
                 break;
-            case 2:
-                MyApp.SetLayout(typeof(StaffLayout));
-                navManager.NavigateTo("/index");
+            case EmployeeType.Staff:
+                result = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{LoginViewModel.Type}/{output}");
+                if (result) {
+                    MyApp.SetLayout(typeof(StaffLayout));
+                    navManager.NavigateTo("/index");
+                }
                 break;
-            case 3:
-                MyApp.SetLayout(typeof(CashierLayout));
-                navManager.NavigateTo("/index");
+            case EmployeeType.Cashier:
+                result = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{LoginViewModel.Type}/{output}");
+                if (result) {
+                   MyApp.SetLayout(typeof(CashierLayout));
+                   navManager.NavigateTo("/index");
+                }
                 break;
             default:
                 break;

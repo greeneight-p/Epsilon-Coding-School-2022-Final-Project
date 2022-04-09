@@ -5,10 +5,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FuelStation.EF.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Authentications",
+                columns: table => new
+                {
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AdminPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManagerPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CashierPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StaffPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Authentications", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
@@ -143,6 +159,9 @@ namespace FuelStation.EF.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Authentications");
+
             migrationBuilder.DropTable(
                 name: "TransactionLines");
 

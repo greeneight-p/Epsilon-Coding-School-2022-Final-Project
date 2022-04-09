@@ -24,6 +24,7 @@ namespace FuelStation.EF {
             modelBuilder.ApplyConfiguration(new ItemConfig());
             modelBuilder.ApplyConfiguration(new TransactionConfig());
             modelBuilder.ApplyConfiguration(new TransactionLineConfig());
+            modelBuilder.ApplyConfiguration(new AuthenticationConfig());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {

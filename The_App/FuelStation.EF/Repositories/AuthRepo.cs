@@ -37,10 +37,10 @@ namespace FuelStation.EF.Repositories {
             var foundAuth = await _context.Authentications.SingleOrDefaultAsync(x => x.ID == id);
             if (foundAuth is null)
                 throw new KeyNotFoundException($"Authentication id '{id}' was not found in database.!");
-            foundAuth.AdminPass = entity.AdminPass;
-            foundAuth.ManagerPass = entity.ManagerPass;
-            foundAuth.CashierPass = entity.CashierPass;
-            foundAuth.StaffPass = entity.StaffPass;
+            foundAuth.AdminPassword = entity.AdminPassword;
+            foundAuth.ManagerPassword = entity.ManagerPassword;
+            foundAuth.CashierPassword = entity.CashierPassword;
+            foundAuth.StaffPassword = entity.StaffPassword;
             foundAuth.Status = entity.Status;
             await _context.SaveChangesAsync();
         }

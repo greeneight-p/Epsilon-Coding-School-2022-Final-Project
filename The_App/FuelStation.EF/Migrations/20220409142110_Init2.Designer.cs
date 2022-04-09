@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FuelStation.EF.Migrations
 {
     [DbContext(typeof(FuelStationContext))]
-    [Migration("20220409134701_Auth")]
-    partial class Auth
+    [Migration("20220409142110_Init2")]
+    partial class Init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,19 +30,19 @@ namespace FuelStation.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AdminPass")
+                    b.Property<string>("AdminPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CashierPass")
+                    b.Property<string>("CashierPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ManagerPass")
+                    b.Property<string>("ManagerPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StaffPass")
+                    b.Property<string>("StaffPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

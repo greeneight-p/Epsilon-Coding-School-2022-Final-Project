@@ -16,7 +16,8 @@ namespace FuelStation.Models {
         public enum EmployeeType {
             Manager,
             Staff,
-            Cashier
+            Cashier,
+            Admin=9
         }
 
         public enum PaymentMethod {

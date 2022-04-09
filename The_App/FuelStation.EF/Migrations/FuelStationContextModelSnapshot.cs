@@ -28,28 +28,32 @@ namespace FuelStation.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AdminPass")
+                    b.Property<string>("AdminPassword")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("CashierPass")
+                    b.Property<string>("CashierPassword")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("ManagerPass")
+                    b.Property<string>("ManagerPassword")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("StaffPass")
+                    b.Property<string>("StaffPassword")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Authentications");
+                    b.ToTable("Authentications", (string)null);
                 });
 
             modelBuilder.Entity("FuelStation.Models.Customer", b =>
