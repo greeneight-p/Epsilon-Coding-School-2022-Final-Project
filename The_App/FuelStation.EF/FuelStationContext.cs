@@ -15,6 +15,7 @@ namespace FuelStation.EF {
         public DbSet<Item> Items { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionLine> TransactionLines { get; set; }
+        public DbSet<Authentication> Authentications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
