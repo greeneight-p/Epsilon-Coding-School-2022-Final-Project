@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuelStations.Models {
+namespace FuelStation.Models {
     public class BaseEntity {
         public bool Status { get; set; } = true;
         public Guid ID { get; set; }

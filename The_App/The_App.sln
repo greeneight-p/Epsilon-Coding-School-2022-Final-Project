@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_App.Server", "The_App\Server\The_App.Server.csproj", "{B97A5BF9-E4A3-455B-BFFD-A77E628243EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "The_App.Server", "The_App\Server\The_App.Server.csproj", "{B97A5BF9-E4A3-455B-BFFD-A77E628243EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_App.Client", "The_App\Client\The_App.Client.csproj", "{566B15B7-AA0C-4BCF-9D09-747C1FDEC80B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "The_App.Client", "The_App\Client\The_App.Client.csproj", "{566B15B7-AA0C-4BCF-9D09-747C1FDEC80B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_App.Shared", "The_App\Shared\The_App.Shared.csproj", "{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "The_App.Shared", "The_App\Shared\The_App.Shared.csproj", "{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStations.Models", "FuelStations.Models\FuelStations.Models.csproj", "{34A8F4A8-0557-4D02-A70A-A08C8C583370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Models", "FuelStations.Models\FuelStation.Models.csproj", "{34A8F4A8-0557-4D02-A70A-A08C8C583370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.EF", "FuelStation.EF\FuelStation.EF.csproj", "{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

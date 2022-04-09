@@ -8,9 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\FuelStation.EF\FuelStation.EF.csproj" />
     <ProjectReference Include="..\Client\The_App.Client.csproj" />
     <ProjectReference Include="..\Shared\The_App.Shared.csproj" />
   </ItemGroup>

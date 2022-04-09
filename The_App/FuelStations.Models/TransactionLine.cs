@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuelStations.Models {
+namespace FuelStation.Models {
     public class TransactionLine : BaseEntity {
         public Guid TransactionID { get; set; }
         public Guid ItemID { get; set; }
@@ -14,5 +14,8 @@ namespace FuelStations.Models {
         public decimal DiscountPercent { get; set; }
         public decimal DiscountValue { get; set; }
         public decimal TotalValue { get; set; }
+        //Relations
+        public Transaction Transaction { get; set; }
+        public Item Item { get; set; }
     }
 }
