@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_App.Client", "The_App\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_App.Shared", "The_App\Shared\The_App.Shared.csproj", "{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStations.Models", "FuelStations.Models\FuelStations.Models.csproj", "{34A8F4A8-0557-4D02-A70A-A08C8C583370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9A22722-5D6F-4058-83AA-A1EC209D8A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A8F4A8-0557-4D02-A70A-A08C8C583370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
