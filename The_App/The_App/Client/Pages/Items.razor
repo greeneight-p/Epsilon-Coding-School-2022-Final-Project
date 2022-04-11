@@ -1,0 +1,137 @@
+﻿@page "/items"
+@using The_App.Shared
+@using static FuelStation.Models.Enumerations
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
+
+
+
+<h3>Items</h3>
+
+
+
+@if (!_loaded) {
+    <p>Loading ...</p>
+}
+else {
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Cost</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (activeItems) {                
+            <tr>
+                <td><input hidden @bind=_itemViewModel.Code /></td> 
+                <td>  <input @bind=_itemViewModel.Description placeholder="Description" /> </td> 
+                <td>    <EditForm Model="@_itemViewModel" class="mb-4">
+                        <InputSelect @bind-Value="_itemViewModel.ItemType" style="height: 30px;">
+                                    @foreach (var type in Enum.GetValues(typeof(ItemType))) {
+                                    <option value="@type">@type</option>
+                                }
+                        </InputSelect>
+                    </EditForm> </td> 
+                        
+                <td>  <input type="number" step="0.01" @bind="_itemViewModel.Cost" placeholder="Cost"/> </td> 
+                <td>   <input type="number" step="0.01" @bind="_itemViewModel.Price" placeholder="Price"/> </td> 
+                <td>   <button class="btn btn-primary" @onclick="AddItem">Add Item</button> </td> 
+            </tr>
+                @foreach (var item in _itemList.Where(x => x.Status == activeItems)) {
+                    <tr>
+                        <td><input readonly @bind="item.Code" /></td>
+                        <td><input @bind="item.Description" placeholder="Description" /></td>
+                        <td>
+                            <EditForm Model="@item">
+                                <InputSelect @bind-Value="item.ItemType" style="height: 30px;">   
+                                        @foreach (var type in Enum.GetValues(typeof(ItemType))) {
+                                        <option value="@type">@type</option>
+                                    }
+                               </InputSelect>
+                          </EditForm>
+                        </td>
+                        <td><input type="number" step="0.01" @bind="item.Cost" placeholder="Cost"/></td>
+                        <td><input type="number" step="0.01" @bind="item.Price" placeholder="Price"/></td>
+                        <td>
+                            <button class="btn btn-success" @onclick="() => SaveItem(item)">Save</button>
+                            <button class="btn btn-danger" @onclick="() => DeleteItem(item)">Delete</button>
+                        </td>
+                    </tr>
+                }
+                <button class="btn btn-warning mt-5" @onclick="ReverseActiveItems">Show Deleted Items</button>
+
+            }
+            else {
+                @foreach (var item in _itemList.Where(x => x.Status == activeItems)) {
+                    <tr>
+                        <td><input readonly @bind="item.Code" placeholder="Code" /></td>
+                        <td><input readonly @bind="item.Description" placeholder="Description" /></td>
+                        <td><input readonly @bind="item.ItemType" placeholder="Type" /></td>
+                        <td><input readonly @bind="item.Cost" placeholder="Cost"/></td>
+                        <td><input readonly @bind="item.Price" placeholder="Price"/></td>
+                        <td>
+                            <td> <button class="btn btn-danger" @onclick="() => DeleteItem(item)">Undo</button></td>
+                        </td>
+                    </tr>
+                }
+                <button class="btn btn-warning mt-5" @onclick="ReverseActiveItems">Back</button>
+            }
+        </tbody>
+    </table>
+
+}
+
+
+
+@code {
+    public bool activeItems = true;
+    private bool _loaded = false;
+    List<ItemViewModel> _itemList = new();
+    private ItemViewModel _itemViewModel = new();
+
+    protected override async Task OnInitializedAsync() {
+        await LoadItemsFromServer();
+        _loaded = true;
+    }
+
+    private async Task LoadItemsFromServer() {
+        _itemList = await httpClient.GetFromJsonAsync<List<ItemViewModel>>("items/getall");
+    }
+
+
+    async Task AddItem() {
+        if (string.IsNullOrWhiteSpace(_itemViewModel.Description)) return;
+        await httpClient.PostAsJsonAsync("items", _itemViewModel);
+        _itemViewModel.Description = null;
+        await LoadItemsFromServer();
+    }
+    async Task DeleteItem(ItemViewModel item) {
+        var confirm = await jsRuntime.InvokeAsync<bool>("confirmationJS", null);
+        if (confirm) {
+            var response = await httpClient.DeleteAsync($"items/{item.ID}");
+            response.EnsureSuccessStatusCode();
+            await LoadItemsFromServer();
+        }
+    }
+
+    async Task SaveItem(ItemViewModel item) {
+        var confirm = await jsRuntime.InvokeAsync<bool>("confirmationJS", null);
+        if (confirm) {
+            var response = await httpClient.PutAsJsonAsync("items", item);
+            response.EnsureSuccessStatusCode();
+            await LoadItemsFromServer();
+        }
+    }
+
+        async Task ReverseActiveItems() {
+         activeItems = !activeItems;
+    }
+
+
+}

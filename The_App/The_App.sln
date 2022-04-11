@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "The_App.Shared", "The_App\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Models", "FuelStations.Models\FuelStation.Models.csproj", "{34A8F4A8-0557-4D02-A70A-A08C8C583370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.EF", "FuelStation.EF\FuelStation.EF.csproj", "{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.EF", "FuelStation.EF\FuelStation.EF.csproj", "{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
