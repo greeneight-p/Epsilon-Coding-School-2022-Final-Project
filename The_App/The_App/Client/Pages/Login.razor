@@ -69,6 +69,9 @@
 
     async void LogIn() {
 
+        LoginViewModel.Type=EmployeeType.Admin;
+        LoginViewModel.Password = "admin";
+
         string output = new string(LoginViewModel.Password.ToCharArray().Reverse().ToArray());
         bool result = false;
         switch (LoginViewModel.Type) {

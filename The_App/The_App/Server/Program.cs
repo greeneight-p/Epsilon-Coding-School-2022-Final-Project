@@ -15,6 +15,7 @@ builder.Services.AddDbContext<FuelStationContext>();
 
 //Repos
 builder.Services.AddScoped<IEntityRepo<Authentication>, AuthRepo>();
+builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
 
 
 
