@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="devexpress.win.design" Version="21.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FuelStations.Models\FuelStation.Models.csproj" />
+    <ProjectReference Include="..\The_App\Server\The_App.Server.csproj" />
+    <ProjectReference Include="..\The_App\Shared\The_App.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

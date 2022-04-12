@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.Models", "FuelS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelStation.EF", "FuelStation.EF\FuelStation.EF.csproj", "{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms.Client", "WinForms.Client\WinForms.Client.csproj", "{66FE94F2-16E6-4229-AE77-820E64FBA026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7BC1D6B-1CC2-4B42-B6C5-7D3519905715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66FE94F2-16E6-4229-AE77-820E64FBA026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FE94F2-16E6-4229-AE77-820E64FBA026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FE94F2-16E6-4229-AE77-820E64FBA026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FE94F2-16E6-4229-AE77-820E64FBA026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
