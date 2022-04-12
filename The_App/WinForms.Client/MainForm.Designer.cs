@@ -25,10 +25,10 @@
         private void InitializeComponent() {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,13 @@
             this.customersToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.customersToolStripMenuItem.Text = "Customers";
             // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
+            // 
             // itemsToolStripMenuItem
             // 
             this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -60,6 +67,12 @@
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.itemsToolStripMenuItem.Text = "Items";
+            // 
+            // listToolStripMenuItem1
+            // 
+            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.listToolStripMenuItem1.Text = "List";
             // 
             // transactionsToolStripMenuItem
             // 
@@ -69,22 +82,10 @@
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
             // 
-            // listToolStripMenuItem
-            // 
-            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listToolStripMenuItem.Text = "List";
-            // 
-            // listToolStripMenuItem1
-            // 
-            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
-            this.listToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.listToolStripMenuItem1.Text = "List";
-            // 
             // listToolStripMenuItem2
             // 
             this.listToolStripMenuItem2.Name = "listToolStripMenuItem2";
-            this.listToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.listToolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
             this.listToolStripMenuItem2.Text = "List";
             // 
             // MainForm

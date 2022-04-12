@@ -13,8 +13,9 @@ namespace WinForms.Client {
     public partial class MainForm : Form {
 
         private EmployeeType _employeeType;
-        public MainForm(EmployeeType type) {
-
+        private string _uri;
+        public MainForm(EmployeeType type, string uri) {
+            _uri = uri;
             _employeeType=type;
             InitializeComponent();
         }
@@ -27,6 +28,11 @@ namespace WinForms.Client {
             if (_employeeType == EmployeeType.Cashier) {
                 itemsToolStripMenuItem.Visible = false;
             }
+        }
+
+        private void listToolStripMenuItem_Click(object sender, EventArgs e) {
+            var customerForm = new CustomerListForm(_uri);
+            customerForm.ShowDialog();
         }
     }
 }

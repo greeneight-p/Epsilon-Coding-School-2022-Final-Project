@@ -5,12 +5,13 @@ using System.Net.Http;
 namespace WinForms.Client {
     public partial class LoginForm : Form {
 
+        private const string URI = "http://localhost:5000";
 
         private LoginViewModel _loginViewModel = new();
         public LoginForm() {
             InitializeComponent();
-            var cH = new ControlPopulator();
-            cH.PopulateEmployeeType(lookUpEditUsers.Properties);
+            var cHelper = new ControlPopulator();
+            cHelper.PopulateEmployeeType(lookUpEditUsers.Properties);
         }
 
         private void LoginForm_Load(object sender, EventArgs e) {
@@ -23,10 +24,10 @@ namespace WinForms.Client {
         private async void simpleButtonLogin_Click(object sender, EventArgs e) {
             string output = new string(_loginViewModel.Password.ToCharArray().Reverse().ToArray());
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://localhost:7110/");
+            httpClient.BaseAddress = new Uri(URI);
             bool x = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{_loginViewModel.Type}/{output}");
             if (x) {
-                var mainForm = new MainForm(_loginViewModel.Type);
+                var mainForm = new MainForm(_loginViewModel.Type,URI);
                 
                 mainForm.ShowDialog();
             }
