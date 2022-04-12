@@ -20,7 +20,8 @@ namespace WinForms.Client {
         private HttpClient httpClient = new();
         private bool _activeCustomers = true;
         public CustomerListForm(string uri) {
-            httpClient.BaseAddress = new Uri(uri);
+            _uri= uri;
+            httpClient.BaseAddress = new Uri(_uri);
             InitializeComponent();
         }
 
@@ -33,10 +34,17 @@ namespace WinForms.Client {
         }
 
         private void simpleButtonEdit_Click(object sender, EventArgs e) {
-
+            var customer = bsCustomers.Current as CustomerViewModel;
+            var customerDetailsForm = new CustomerDetailsForm(customer, _uri);
+            customerDetailsForm.FormClosed += new FormClosedEventHandler(Form_Closed);
+            customerDetailsForm.ShowDialog();
         }
 
-        private void simpleButtonNew_Click(object sender, EventArgs e) {
+        private void simpleButtonNew_ClickAsync(object sender, EventArgs e) {
+            var customerDetailsForm = new CustomerDetailsForm(null, _uri);
+            customerDetailsForm.FormClosed += new FormClosedEventHandler(Form_Closed);
+            customerDetailsForm.Show();
+
 
         }
 
@@ -82,6 +90,11 @@ namespace WinForms.Client {
                 simpleButtonReverseActive.Text = "Back";
             }
            await LoadCustomersAsync();
+        }
+
+        async void Form_Closed(object sender, FormClosedEventArgs e) {
+            //CustomerDetailsForm customerDetailsForm = (CustomerDetailsForm)sender;
+            await LoadCustomersAsync();
         }
     }
 }
