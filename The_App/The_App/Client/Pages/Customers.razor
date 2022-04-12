@@ -45,7 +45,7 @@ else {
                     <tr>
                         <td><input @bind="customer.Name" /></td>
                         <td><input @bind="customer.Surname" /></td>
-                        <td><input @bind="customer.CardNumber" /></td>
+                        <td><input readonly @bind="customer.CardNumber" /></td>
                         <td>
                             <button class="btn btn-success" @onclick="() => NewCardNumber(customer)">New Card</button>
                             <button class="btn btn-success" @onclick="() => SaveCustomer(customer)">Save</button>
@@ -91,18 +91,10 @@ else {
         _customerList = await httpClient.GetFromJsonAsync<List<CustomerViewModel>>("customers/getall");
     }
 
-    public async void AddTest() {
-        var model = new CustomerViewModel()
-            {
-                Name = "john",
-                Surname = "Pol"
-            };
-
-        var response = await httpClient.PostAsJsonAsync<CustomerViewModel>("customers", model);
-    }
     async Task AddCustomer() {
-        if (string.IsNullOrWhiteSpace(_customerViewModel.Name)) return;
-        if (string.IsNullOrWhiteSpace(_customerViewModel.Surname)) return;
+        if (string.IsNullOrWhiteSpace(_customerViewModel.Name) ||
+        string.IsNullOrWhiteSpace(_customerViewModel.Surname))
+            await jsRuntime.InvokeVoidAsync("InvalidInput");
         await httpClient.PostAsJsonAsync("customers", _customerViewModel);
         _customerViewModel.Name = null;
         _customerViewModel.Surname = null;

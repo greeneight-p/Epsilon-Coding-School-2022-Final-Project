@@ -4,8 +4,8 @@
 }
 
 
-function noMoreTasks() {
-    alert("You can not add more tasks!");
+function InvalidInput() {
+    alert("Invalid input, please check again.!");
 }
 
 function transactionConfirmJS() {
