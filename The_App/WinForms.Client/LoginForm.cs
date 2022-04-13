@@ -15,7 +15,6 @@ namespace WinForms.Client {
         }
 
         private void LoginForm_Load(object sender, EventArgs e) {
-
             bsloginViewModel.DataSource = _loginViewModel;
             textEditPassword.DataBindings.Add(new Binding("EditValue", bsloginViewModel, "Password", true));
             lookUpEditUsers.DataBindings.Add(new Binding("EditValue", bsloginViewModel, "Type", true));
