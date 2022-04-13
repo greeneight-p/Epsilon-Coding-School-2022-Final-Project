@@ -20,7 +20,7 @@ namespace WinForms.Client {
         private HttpClient httpClient = new();
         private bool _activeCustomers = true;
         public CustomerListForm(string uri) {
-            _uri= uri;
+            _uri = uri;
             httpClient.BaseAddress = new Uri(_uri);
             InitializeComponent();
         }
@@ -48,7 +48,7 @@ namespace WinForms.Client {
 
         }
 
-        private  async void simpleButtonDelete_Click(object sender, EventArgs e) {
+        private async void simpleButtonDelete_Click(object sender, EventArgs e) {
             await DeleteLogicAsync();
             await LoadCustomersAsync();
 
@@ -60,10 +60,10 @@ namespace WinForms.Client {
             if (bsCustomers.Current as CustomerViewModel is null)
                 return false;
             var result = MessageBox.Show(this, "Are you sure you want to delete the selected Customer?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(result == DialogResult.Yes){
+            if (result == DialogResult.Yes) {
                 var customer = bsCustomers.Current as CustomerViewModel;
                 await httpClient.DeleteAsync($"customers/{customer.ID}");
-                
+
             }
             return true;
         }
@@ -89,7 +89,7 @@ namespace WinForms.Client {
             else {
                 simpleButtonReverseActive.Text = "Back";
             }
-           await LoadCustomersAsync();
+            await LoadCustomersAsync();
         }
 
         async void Form_Closed(object sender, FormClosedEventArgs e) {
