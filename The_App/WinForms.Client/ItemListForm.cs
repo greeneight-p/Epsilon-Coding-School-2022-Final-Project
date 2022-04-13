@@ -33,11 +33,16 @@ namespace WinForms.Client {
         }
 
         private void simpleButtonNew_Click(object sender, EventArgs e) {
-
+            var itemDetailsForm = new ItemDetailsForm(null, _uri);
+            itemDetailsForm.FormClosed += new FormClosedEventHandler(Form_Closed);
+            itemDetailsForm.ShowDialog();
         }
 
         private void simpleButtonEdit_Click(object sender, EventArgs e) {
-
+            var item = bsItemList.Current as ItemViewModel;
+            var itemDetailsForm = new ItemDetailsForm(item, _uri);
+            itemDetailsForm.FormClosed += new FormClosedEventHandler(Form_Closed);
+            itemDetailsForm.ShowDialog();
         }
 
         private async void simpleButtonDelete_Click(object sender, EventArgs e) {
@@ -49,9 +54,15 @@ namespace WinForms.Client {
             _activeItems = !_activeItems;
             if (_activeItems) {
                 simpleButtonReverseActiveItems.Text = "Show Deleted Items";
+                simpleButtonDelete.Text = "Delete";
+                simpleButtonEdit.Enabled = true;
+                simpleButtonNew.Enabled = true;
             }
             else {
                 simpleButtonReverseActiveItems.Text = "Back";
+                simpleButtonDelete.Text = "Undo";
+                simpleButtonEdit.Enabled = false;
+                simpleButtonNew.Enabled = false;
             }
             await LoadItemsAsync();
 
@@ -76,6 +87,11 @@ namespace WinForms.Client {
 
             }
             return true;
+        }
+
+        async void Form_Closed(object sender, FormClosedEventArgs e) {
+            //CustomerDetailsForm customerDetailsForm = (CustomerDetailsForm)sender;
+            await LoadItemsAsync();
         }
     }
 }

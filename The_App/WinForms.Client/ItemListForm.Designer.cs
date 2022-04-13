@@ -211,7 +211,7 @@
             this.ClientSize = new System.Drawing.Size(800, 452);
             this.Controls.Add(this.layoutControl1);
             this.Name = "ItemListForm";
-            this.Text = "ItemListForm";
+            this.Text = "Items";
             this.Load += new System.EventHandler(this.ItemListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

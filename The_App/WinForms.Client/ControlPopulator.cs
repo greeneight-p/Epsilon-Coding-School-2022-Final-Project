@@ -27,5 +27,36 @@ namespace WinForms.Client {
         }
 
 
+        public void PopulateItemType(RepositoryItemLookUpEdit lookup) {
+            var itemTypes = new Dictionary<ItemType, string>()
+        {
+            { ItemType.Fuel, "Fuel" },
+            { ItemType.Product, "Product" },
+            { ItemType.Service, "Service" },
+        };
+
+            lookup.DataSource = itemTypes;
+            lookup.Columns.Add(new LookUpColumnInfo("Value"));
+            lookup.DisplayMember = "Value";
+            lookup.ValueMember = "Key";
+            lookup.ShowHeader = false;
+        }
+
+
+        public void PopulatePaymentMethod(RepositoryItemLookUpEdit lookup) {
+            var paymentMethods = new Dictionary<PaymentMethod, string>()
+        {
+            { PaymentMethod.Cash, "Cash" },
+            { PaymentMethod.CreditCard, "CreditCard" },
+        };
+
+            lookup.DataSource = paymentMethods;
+            lookup.Columns.Add(new LookUpColumnInfo("Value"));
+            lookup.DisplayMember = "Value";
+            lookup.ValueMember = "Key";
+            lookup.ShowHeader = false;
+        }
+
+
     }
 }

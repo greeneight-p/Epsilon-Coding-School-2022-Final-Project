@@ -34,5 +34,14 @@ namespace WinForms.Client {
             var customerForm = new CustomerListForm(_uri);
             customerForm.ShowDialog();
         }
+
+        private void listToolStripMenuItem1_Click(object sender, EventArgs e) {
+            var itemForm = new ItemListForm(_uri);
+            itemForm.FormClosed += new FormClosedEventHandler(Form_Closed);
+            itemForm.ShowDialog();
+        }
+
+        private void Form_Closed(object? sender, FormClosedEventArgs e) {
+        }
     }
 }

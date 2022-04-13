@@ -22,15 +22,28 @@ namespace WinForms.Client {
         }
 
         private async void simpleButtonLogin_Click(object sender, EventArgs e) {
+            if (_loginViewModel.Password is null) {
+                MessageBox.Show("Please fill the password.!");
+                return;
+            }
             string output = new string(_loginViewModel.Password.ToCharArray().Reverse().ToArray());
             var httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(URI);
             bool x = await httpClient.GetFromJsonAsync<bool>($"authentications/login/{_loginViewModel.Type}/{output}");
             if (x) {
-                var mainForm = new MainForm(_loginViewModel.Type,URI);
-                
+                var mainForm = new MainForm(_loginViewModel.Type,URI);  
+                mainForm.FormClosed += new FormClosedEventHandler(Form_Closed);
                 mainForm.ShowDialog();
             }
+            else {
+                MessageBox.Show("Wrong User or Password.!");
+            }
+        }
+
+
+        async void Form_Closed(object sender, FormClosedEventArgs e) {
+            //CustomerDetailsForm customerDetailsForm = (CustomerDetailsForm)sender;
+            textEditPassword.EditValue = string.Empty;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace WinForms.Client {
         private void simpleButtonNew_ClickAsync(object sender, EventArgs e) {
             var customerDetailsForm = new CustomerDetailsForm(null, _uri);
             customerDetailsForm.FormClosed += new FormClosedEventHandler(Form_Closed);
-            customerDetailsForm.Show();
+            customerDetailsForm.ShowDialog();
 
 
         }
@@ -85,9 +85,15 @@ namespace WinForms.Client {
             _activeCustomers = !_activeCustomers;
             if (_activeCustomers) {
                 simpleButtonReverseActive.Text = "Show Deleted Customers";
+                simpleButtonDelete.Text = "Delete";
+                simpleButtonEdit.Enabled = true;
+                simpleButtonNew.Enabled = true;
             }
             else {
                 simpleButtonReverseActive.Text = "Back";
+                simpleButtonDelete.Text = "Undo";
+                simpleButtonEdit.Enabled = false;
+                simpleButtonNew.Enabled = false;
             }
             await LoadCustomersAsync();
         }
