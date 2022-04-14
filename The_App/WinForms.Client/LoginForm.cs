@@ -5,8 +5,8 @@ using System.Net.Http;
 namespace WinForms.Client {
     public partial class LoginForm : Form {
 
-        private const string URI = "http://localhost:5000";
-
+        private string URI = $"https://localhost:5001";
+        private int port = 5001;
         private LoginViewModel _loginViewModel = new();
         public LoginForm() {
             InitializeComponent();
@@ -15,6 +15,7 @@ namespace WinForms.Client {
         }
 
         private void LoginForm_Load(object sender, EventArgs e) {
+            label1.Text = $"Serve: {URI}";
             bsloginViewModel.DataSource = _loginViewModel;
             textEditPassword.DataBindings.Add(new Binding("EditValue", bsloginViewModel, "Password", true));
             lookUpEditUsers.DataBindings.Add(new Binding("EditValue", bsloginViewModel, "Type", true));
@@ -43,6 +44,13 @@ namespace WinForms.Client {
         async void Form_Closed(object sender, FormClosedEventArgs e) {
             //CustomerDetailsForm customerDetailsForm = (CustomerDetailsForm)sender;
             textEditPassword.EditValue = string.Empty;
+        }
+
+        private void simpleButtonPort_Click(object sender, EventArgs e) {
+            port = Convert.ToInt32(spinEditPort.EditValue);
+            URI = $"https://localhost:{port}";
+            label1.Text = $"Server: {URI}";
+
         }
     }
 }
