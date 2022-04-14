@@ -10,6 +10,7 @@ namespace The_App.Shared {
         public bool Status { get; set; }
         public Guid TransactionID { get; set; }
         public Guid ItemID { get; set; }
+        public string? ItemDescription { get; set; }
         public int Quantity { get; set; }
         public decimal ItemPrice { get; set; }
         public decimal ItemCost { get; set; }

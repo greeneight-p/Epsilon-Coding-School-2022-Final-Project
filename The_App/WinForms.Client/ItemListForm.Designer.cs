@@ -40,6 +40,11 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsItemList = new System.Windows.Forms.BindingSource(this.components);
+            this.gridColumnCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnItemType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlItems)).BeginInit();
@@ -132,6 +137,12 @@
             // 
             // gridViewItems
             // 
+            this.gridViewItems.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnCode,
+            this.gridColumnDescription,
+            this.gridColumnItemType,
+            this.gridColumnCost,
+            this.gridColumnPrice});
             this.gridViewItems.GridControl = this.gridControlItems;
             this.gridViewItems.Name = "gridViewItems";
             this.gridViewItems.OptionsBehavior.Editable = false;
@@ -205,6 +216,46 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
+            // gridColumnCode
+            // 
+            this.gridColumnCode.Caption = "Code";
+            this.gridColumnCode.FieldName = "Code";
+            this.gridColumnCode.Name = "gridColumnCode";
+            this.gridColumnCode.Visible = true;
+            this.gridColumnCode.VisibleIndex = 0;
+            // 
+            // gridColumnDescription
+            // 
+            this.gridColumnDescription.Caption = "Description";
+            this.gridColumnDescription.FieldName = "Description";
+            this.gridColumnDescription.Name = "gridColumnDescription";
+            this.gridColumnDescription.Visible = true;
+            this.gridColumnDescription.VisibleIndex = 1;
+            // 
+            // gridColumnItemType
+            // 
+            this.gridColumnItemType.Caption = "Type";
+            this.gridColumnItemType.FieldName = "ItemType";
+            this.gridColumnItemType.Name = "gridColumnItemType";
+            this.gridColumnItemType.Visible = true;
+            this.gridColumnItemType.VisibleIndex = 2;
+            // 
+            // gridColumnCost
+            // 
+            this.gridColumnCost.Caption = "Cost";
+            this.gridColumnCost.FieldName = "Cost";
+            this.gridColumnCost.Name = "gridColumnCost";
+            this.gridColumnCost.Visible = true;
+            this.gridColumnCost.VisibleIndex = 3;
+            // 
+            // gridColumnPrice
+            // 
+            this.gridColumnPrice.Caption = "Price";
+            this.gridColumnPrice.FieldName = "Price";
+            this.gridColumnPrice.Name = "gridColumnPrice";
+            this.gridColumnPrice.Visible = true;
+            this.gridColumnPrice.VisibleIndex = 4;
+            // 
             // ItemListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -248,5 +299,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private BindingSource bsItemList;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCode;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnItemType;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCost;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPrice;
     }
 }

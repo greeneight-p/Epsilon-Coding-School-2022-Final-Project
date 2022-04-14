@@ -39,7 +39,20 @@ namespace The_App.Server.Controllers {
             });
         }
 
-        [HttpPost]
+
+        [HttpGet("{id}")]
+        public async Task<CustomerViewModel> GetOneCustomer(Guid id) {
+            var result =  await _customerRepo.GetByIdAsync(id);
+            return new CustomerViewModel()
+            {
+                ID = result.ID,
+                Status =result.Status,
+                Name = result.Name,
+                Surname = result.Surname,
+                CardNumber = result.CardNumber
+            };
+        }
+            [HttpPost]
         public async Task Post(CustomerViewModel customer) {
 
             var guid = Guid.NewGuid();

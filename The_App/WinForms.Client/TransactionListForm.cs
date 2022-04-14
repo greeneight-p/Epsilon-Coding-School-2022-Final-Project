@@ -18,6 +18,8 @@ namespace WinForms.Client {
         private TransactionViewModel _transaction = new();
         private HttpClient httpClient = new();
         private bool _activeTransactions = true;
+        private List<EmployeeViewModel> _employeeList = new();
+        private List<CustomerViewModel> _customerList = new();
         public TransactionListForm(string uri) {
             _uri = uri;
             httpClient.BaseAddress = new Uri(_uri);
@@ -67,7 +69,15 @@ namespace WinForms.Client {
 
 
         private async Task LoadTransactionsAsync() {
+            _customerList = await httpClient.GetFromJsonAsync<List<CustomerViewModel>>("customers/getall");
+            _employeeList = await httpClient.GetFromJsonAsync<List<EmployeeViewModel>>("employees/getall");
             _transactionList = await httpClient.GetFromJsonAsync<List<TransactionViewModel>>("transactions/getall");
+            foreach (var transaction in _transactionList) {
+                var customer = _customerList.Find(x => x.ID == transaction.CustomerID);
+                var employee = _employeeList.Find(x => x.ID == transaction.EmployeeID);
+                transaction.CustomerName = $"{customer.Name} {customer.Surname}";
+                transaction.EmployeeName = $"{employee.Name} {employee.Surname}";
+            }
             bsTransactions.DataSource = _transactionList.Where(x => x.Status == _activeTransactions);
             gridControlTransactions.DataSource = bsTransactions;
             gridControlTransactions.RefreshDataSource();

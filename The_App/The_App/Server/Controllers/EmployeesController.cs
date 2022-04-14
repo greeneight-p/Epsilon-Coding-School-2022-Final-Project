@@ -45,6 +45,21 @@ namespace The_App.Server.Controllers {
                 SalaryPerMonth = x.SalaryPerMonth
             });
         }
+        [HttpGet("{id}")]
+        public async Task<EmployeeViewModel> GetOneEmployee(Guid id) {
+            var result = await _employeeRepo.GetByIdAsync(id);
+            return new EmployeeViewModel()
+            {
+                ID = result.ID,
+                Status = result.Status,
+                Name = result.Name,
+                Surname = result.Surname,
+                EmployeeType = result.EmployeeType,
+                HireDate = result.HireDate,
+                DismissDate = result.DismissDate,
+                SalaryPerMonth = result.SalaryPerMonth
+            };
+        }
 
         [HttpPost]
         public async Task Post(EmployeeViewModel employee) {

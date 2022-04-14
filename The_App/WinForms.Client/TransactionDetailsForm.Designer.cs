@@ -26,8 +26,21 @@
             this.components = new System.ComponentModel.Container();
             this.gridControlLines = new DevExpress.XtraGrid.GridControl();
             this.gridViewLines = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnItemDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnItemPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnItemCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTotalCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnNetValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnDiscountPercent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnDiscountValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlItems = new DevExpress.XtraGrid.GridControl();
             this.gridViewItems = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButtonClose = new DevExpress.XtraEditors.SimpleButton();
             this.labelItems = new System.Windows.Forms.Label();
             this.labelLines = new System.Windows.Forms.Label();
@@ -60,15 +73,98 @@
             this.gridControlLines.Location = new System.Drawing.Point(493, 121);
             this.gridControlLines.MainView = this.gridViewLines;
             this.gridControlLines.Name = "gridControlLines";
-            this.gridControlLines.Size = new System.Drawing.Size(614, 439);
+            this.gridControlLines.Size = new System.Drawing.Size(694, 439);
             this.gridControlLines.TabIndex = 2;
             this.gridControlLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLines});
             // 
             // gridViewLines
             // 
+            this.gridViewLines.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnItemDescription,
+            this.gridColumnQuantity,
+            this.gridColumnItemPrice,
+            this.gridColumnItemCost,
+            this.gridColumnTotalCost,
+            this.gridColumnNetValue,
+            this.gridColumnDiscountPercent,
+            this.gridColumnDiscountValue,
+            this.gridColumnTotalValue});
             this.gridViewLines.GridControl = this.gridControlLines;
             this.gridViewLines.Name = "gridViewLines";
+            this.gridViewLines.OptionsBehavior.Editable = false;
+            // 
+            // gridColumnItemDescription
+            // 
+            this.gridColumnItemDescription.Caption = "Item Description";
+            this.gridColumnItemDescription.FieldName = "ItemDescription";
+            this.gridColumnItemDescription.Name = "gridColumnItemDescription";
+            this.gridColumnItemDescription.Visible = true;
+            this.gridColumnItemDescription.VisibleIndex = 0;
+            // 
+            // gridColumnQuantity
+            // 
+            this.gridColumnQuantity.Caption = "Quantity";
+            this.gridColumnQuantity.FieldName = "Quantity";
+            this.gridColumnQuantity.Name = "gridColumnQuantity";
+            this.gridColumnQuantity.Visible = true;
+            this.gridColumnQuantity.VisibleIndex = 1;
+            // 
+            // gridColumnItemPrice
+            // 
+            this.gridColumnItemPrice.Caption = "Item Price";
+            this.gridColumnItemPrice.FieldName = "ItemPrice";
+            this.gridColumnItemPrice.Name = "gridColumnItemPrice";
+            this.gridColumnItemPrice.Visible = true;
+            this.gridColumnItemPrice.VisibleIndex = 2;
+            // 
+            // gridColumnItemCost
+            // 
+            this.gridColumnItemCost.Caption = "Item Cost";
+            this.gridColumnItemCost.FieldName = "ItemCost";
+            this.gridColumnItemCost.Name = "gridColumnItemCost";
+            this.gridColumnItemCost.Visible = true;
+            this.gridColumnItemCost.VisibleIndex = 3;
+            // 
+            // gridColumnTotalCost
+            // 
+            this.gridColumnTotalCost.Caption = "Total Cost";
+            this.gridColumnTotalCost.FieldName = "TotalCost";
+            this.gridColumnTotalCost.Name = "gridColumnTotalCost";
+            this.gridColumnTotalCost.Visible = true;
+            this.gridColumnTotalCost.VisibleIndex = 8;
+            // 
+            // gridColumnNetValue
+            // 
+            this.gridColumnNetValue.Caption = "Net Value";
+            this.gridColumnNetValue.FieldName = "NetValue";
+            this.gridColumnNetValue.Name = "gridColumnNetValue";
+            this.gridColumnNetValue.Visible = true;
+            this.gridColumnNetValue.VisibleIndex = 4;
+            // 
+            // gridColumnDiscountPercent
+            // 
+            this.gridColumnDiscountPercent.Caption = "Discount Percent";
+            this.gridColumnDiscountPercent.FieldName = "DiscountPercent";
+            this.gridColumnDiscountPercent.Name = "gridColumnDiscountPercent";
+            this.gridColumnDiscountPercent.Visible = true;
+            this.gridColumnDiscountPercent.VisibleIndex = 5;
+            // 
+            // gridColumnDiscountValue
+            // 
+            this.gridColumnDiscountValue.Caption = "Discount Value";
+            this.gridColumnDiscountValue.FieldName = "DiscountValue";
+            this.gridColumnDiscountValue.Name = "gridColumnDiscountValue";
+            this.gridColumnDiscountValue.Visible = true;
+            this.gridColumnDiscountValue.VisibleIndex = 6;
+            // 
+            // gridColumnTotalValue
+            // 
+            this.gridColumnTotalValue.Caption = "Total Value";
+            this.gridColumnTotalValue.FieldName = "TotalValue";
+            this.gridColumnTotalValue.Name = "gridColumnTotalValue";
+            this.gridColumnTotalValue.Visible = true;
+            this.gridColumnTotalValue.VisibleIndex = 7;
             // 
             // gridControlItems
             // 
@@ -82,8 +178,46 @@
             // 
             // gridViewItems
             // 
+            this.gridViewItems.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnCode,
+            this.gridColumnDescription,
+            this.gridColumnCost,
+            this.gridColumnPrice});
             this.gridViewItems.GridControl = this.gridControlItems;
             this.gridViewItems.Name = "gridViewItems";
+            this.gridViewItems.OptionsBehavior.Editable = false;
+            // 
+            // gridColumnCode
+            // 
+            this.gridColumnCode.Caption = "Code";
+            this.gridColumnCode.FieldName = "Code";
+            this.gridColumnCode.Name = "gridColumnCode";
+            this.gridColumnCode.Visible = true;
+            this.gridColumnCode.VisibleIndex = 0;
+            // 
+            // gridColumnDescription
+            // 
+            this.gridColumnDescription.Caption = "Description";
+            this.gridColumnDescription.FieldName = "Description";
+            this.gridColumnDescription.Name = "gridColumnDescription";
+            this.gridColumnDescription.Visible = true;
+            this.gridColumnDescription.VisibleIndex = 1;
+            // 
+            // gridColumnCost
+            // 
+            this.gridColumnCost.Caption = "Cost";
+            this.gridColumnCost.FieldName = "Cost";
+            this.gridColumnCost.Name = "gridColumnCost";
+            this.gridColumnCost.Visible = true;
+            this.gridColumnCost.VisibleIndex = 2;
+            // 
+            // gridColumnPrice
+            // 
+            this.gridColumnPrice.Caption = "Price";
+            this.gridColumnPrice.FieldName = "Price";
+            this.gridColumnPrice.Name = "gridColumnPrice";
+            this.gridColumnPrice.Visible = true;
+            this.gridColumnPrice.VisibleIndex = 3;
             // 
             // simpleButtonClose
             // 
@@ -108,7 +242,7 @@
             // 
             this.labelLines.AutoSize = true;
             this.labelLines.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelLines.Location = new System.Drawing.Point(967, 93);
+            this.labelLines.Location = new System.Drawing.Point(1031, 93);
             this.labelLines.Name = "labelLines";
             this.labelLines.Size = new System.Drawing.Size(156, 25);
             this.labelLines.TabIndex = 6;
@@ -217,7 +351,7 @@
             // simpleButtonConfirm
             // 
             this.simpleButtonConfirm.Enabled = false;
-            this.simpleButtonConfirm.Location = new System.Drawing.Point(1036, 566);
+            this.simpleButtonConfirm.Location = new System.Drawing.Point(1116, 566);
             this.simpleButtonConfirm.Name = "simpleButtonConfirm";
             this.simpleButtonConfirm.Size = new System.Drawing.Size(71, 41);
             this.simpleButtonConfirm.TabIndex = 16;
@@ -228,7 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 613);
+            this.ClientSize = new System.Drawing.Size(1199, 613);
             this.Controls.Add(this.simpleButtonConfirm);
             this.Controls.Add(this.simpleButtonCheckout);
             this.Controls.Add(this.simpleButtonRemoveLine);
@@ -283,5 +417,18 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonRemoveLine;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCheckout;
         private DevExpress.XtraEditors.SimpleButton simpleButtonConfirm;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCode;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCost;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnQuantity;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnItemPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnItemCost;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnTotalCost;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnNetValue;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDiscountPercent;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDiscountValue;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnTotalValue;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnItemDescription;
     }
 }

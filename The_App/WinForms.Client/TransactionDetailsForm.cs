@@ -48,11 +48,11 @@ namespace WinForms.Client {
             gridControlItems.DataSource = bsItems;
         }
 
-        private async void CreateTransactionLinesBinding() {
+        private void CreateTransactionLinesBinding() {
             bsTransactionLines.DataSource = _tLinesList;
             gridControlLines.DataSource = bsTransactionLines;
         }
-        private async void CreateTransactionBinding() {
+        private void CreateTransactionBinding() {
             bsTransaction.DataSource = _transaction;
             var cPopulator = new ControlPopulator();
             cPopulator.PopulatePaymentMethod(lookUpEditPaymentMethod.Properties);
@@ -72,6 +72,8 @@ namespace WinForms.Client {
             _tLinesList.Add(transactionLine);
             gridViewLines.RefreshData();
             simpleButtonConfirm.Enabled = false;
+            spinEditQuantity.EditValue = 1;
+
         }
 
         private void simpleButtonRemoveLine_Click(object sender, EventArgs e) {
@@ -95,11 +97,12 @@ namespace WinForms.Client {
                 lookUpEditPaymentMethod.Enabled = true;
             }
 
-            labelTotal.Text = $"Total: {total}, {_transaction.PaymentMethod}";
+            //labelTotal.Text = $"Total: {total}, {_transaction.PaymentMethod}";
         }
 
         private void PopulateTransactionLine(TransactionLineViewModel line, ItemViewModel item, int qty) {
             line.ItemID = item.ID;
+            line.ItemDescription = item.Description;
             line.Quantity = qty;
             line.ItemPrice = item.Price;
             line.ItemCost = item.Cost;

@@ -32,6 +32,12 @@
             this.simpleButtonClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlTransactions = new DevExpress.XtraGrid.GridControl();
             this.gridViewTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEmployee = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPaymentMethod = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1TotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTotalCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -40,12 +46,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
-            this.gridColumnDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnEmployee = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnPaymentMethod = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1TotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnTotalCost = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTransactions)).BeginInit();
@@ -108,6 +108,7 @@
             // 
             // simpleButtonEdit
             // 
+            this.simpleButtonEdit.Enabled = false;
             this.simpleButtonEdit.Location = new System.Drawing.Point(560, 416);
             this.simpleButtonEdit.Name = "simpleButtonEdit";
             this.simpleButtonEdit.Size = new System.Drawing.Size(270, 22);
@@ -148,6 +149,54 @@
             this.gridViewTransactions.GridControl = this.gridControlTransactions;
             this.gridViewTransactions.Name = "gridViewTransactions";
             this.gridViewTransactions.OptionsBehavior.Editable = false;
+            // 
+            // gridColumnDate
+            // 
+            this.gridColumnDate.Caption = "Date";
+            this.gridColumnDate.FieldName = "Date";
+            this.gridColumnDate.Name = "gridColumnDate";
+            this.gridColumnDate.Visible = true;
+            this.gridColumnDate.VisibleIndex = 0;
+            // 
+            // gridColumnEmployee
+            // 
+            this.gridColumnEmployee.Caption = "Employee";
+            this.gridColumnEmployee.FieldName = "EmployeeName";
+            this.gridColumnEmployee.Name = "gridColumnEmployee";
+            this.gridColumnEmployee.Visible = true;
+            this.gridColumnEmployee.VisibleIndex = 1;
+            // 
+            // gridColumnCustomer
+            // 
+            this.gridColumnCustomer.Caption = "Customer";
+            this.gridColumnCustomer.FieldName = "CustomerName";
+            this.gridColumnCustomer.Name = "gridColumnCustomer";
+            this.gridColumnCustomer.Visible = true;
+            this.gridColumnCustomer.VisibleIndex = 2;
+            // 
+            // gridColumnPaymentMethod
+            // 
+            this.gridColumnPaymentMethod.Caption = "Payment Method";
+            this.gridColumnPaymentMethod.FieldName = "PaymentMethod";
+            this.gridColumnPaymentMethod.Name = "gridColumnPaymentMethod";
+            this.gridColumnPaymentMethod.Visible = true;
+            this.gridColumnPaymentMethod.VisibleIndex = 3;
+            // 
+            // gridColumn1TotalValue
+            // 
+            this.gridColumn1TotalValue.Caption = "Total Value";
+            this.gridColumn1TotalValue.FieldName = "TotalValue";
+            this.gridColumn1TotalValue.Name = "gridColumn1TotalValue";
+            this.gridColumn1TotalValue.Visible = true;
+            this.gridColumn1TotalValue.VisibleIndex = 4;
+            // 
+            // gridColumnTotalCost
+            // 
+            this.gridColumnTotalCost.Caption = "Total Cost";
+            this.gridColumnTotalCost.FieldName = "TotalCost";
+            this.gridColumnTotalCost.Name = "gridColumnTotalCost";
+            this.gridColumnTotalCost.Visible = true;
+            this.gridColumnTotalCost.VisibleIndex = 5;
             // 
             // Root
             // 
@@ -217,54 +266,6 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(1096, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
-            // 
-            // gridColumnDate
-            // 
-            this.gridColumnDate.Caption = "Date";
-            this.gridColumnDate.FieldName = "Date";
-            this.gridColumnDate.Name = "gridColumnDate";
-            this.gridColumnDate.Visible = true;
-            this.gridColumnDate.VisibleIndex = 0;
-            // 
-            // gridColumnEmployee
-            // 
-            this.gridColumnEmployee.Caption = "Employee";
-            this.gridColumnEmployee.FieldName = "Employee";
-            this.gridColumnEmployee.Name = "gridColumnEmployee";
-            this.gridColumnEmployee.Visible = true;
-            this.gridColumnEmployee.VisibleIndex = 1;
-            // 
-            // gridColumnCustomer
-            // 
-            this.gridColumnCustomer.Caption = "Customer";
-            this.gridColumnCustomer.FieldName = "Customer";
-            this.gridColumnCustomer.Name = "gridColumnCustomer";
-            this.gridColumnCustomer.Visible = true;
-            this.gridColumnCustomer.VisibleIndex = 2;
-            // 
-            // gridColumnPaymentMethod
-            // 
-            this.gridColumnPaymentMethod.Caption = "Payment Method";
-            this.gridColumnPaymentMethod.FieldName = "PaymentMethod";
-            this.gridColumnPaymentMethod.Name = "gridColumnPaymentMethod";
-            this.gridColumnPaymentMethod.Visible = true;
-            this.gridColumnPaymentMethod.VisibleIndex = 3;
-            // 
-            // gridColumn1TotalValue
-            // 
-            this.gridColumn1TotalValue.Caption = "Tota lValue";
-            this.gridColumn1TotalValue.FieldName = "TotalValue";
-            this.gridColumn1TotalValue.Name = "gridColumn1TotalValue";
-            this.gridColumn1TotalValue.Visible = true;
-            this.gridColumn1TotalValue.VisibleIndex = 4;
-            // 
-            // gridColumnTotalCost
-            // 
-            this.gridColumnTotalCost.Caption = "Total Cost";
-            this.gridColumnTotalCost.FieldName = "TotalCost";
-            this.gridColumnTotalCost.Name = "gridColumnTotalCost";
-            this.gridColumnTotalCost.Visible = true;
-            this.gridColumnTotalCost.VisibleIndex = 5;
             // 
             // TransactionListForm
             // 

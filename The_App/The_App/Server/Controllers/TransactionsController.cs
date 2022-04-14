@@ -27,7 +27,7 @@ namespace The_App.Server.Controllers {
                 TotalCost = x.TotalCost,
                 TransactionLines = x.TransactionLines.Select(line => new TransactionLineViewModel()
                 {
-                    ID = Guid.NewGuid(),
+                    ID = line.ID,
                     ItemID = line.ItemID,
                     ItemPrice = line.ItemPrice,
                     Quantity = line.Quantity,
@@ -56,7 +56,7 @@ namespace The_App.Server.Controllers {
                 TotalCost = x.TotalCost,
                 TransactionLines = x.TransactionLines.Select(line => new TransactionLineViewModel()
                 {
-                    ID = Guid.NewGuid(),
+                    ID = line.ID,
                     ItemID = line.ItemID,
                     ItemPrice = line.ItemPrice,
                     Quantity = line.Quantity,

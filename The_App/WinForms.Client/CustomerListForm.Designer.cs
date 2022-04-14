@@ -35,6 +35,9 @@
             this.simpleButtonReverseActive = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.gridColumnName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnSurname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -113,6 +116,10 @@
             // 
             // gridViewCustomers
             // 
+            this.gridViewCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnName,
+            this.gridColumnSurname,
+            this.gridColumnCardNumber});
             this.gridViewCustomers.GridControl = this.gridControlCustomers;
             this.gridViewCustomers.Name = "gridViewCustomers";
             this.gridViewCustomers.OptionsBehavior.Editable = false;
@@ -144,6 +151,30 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(780, 430);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // gridColumnName
+            // 
+            this.gridColumnName.Caption = "Name";
+            this.gridColumnName.FieldName = "Name";
+            this.gridColumnName.Name = "gridColumnName";
+            this.gridColumnName.Visible = true;
+            this.gridColumnName.VisibleIndex = 0;
+            // 
+            // gridColumnSurname
+            // 
+            this.gridColumnSurname.Caption = "Surname";
+            this.gridColumnSurname.FieldName = "Surname";
+            this.gridColumnSurname.Name = "gridColumnSurname";
+            this.gridColumnSurname.Visible = true;
+            this.gridColumnSurname.VisibleIndex = 1;
+            // 
+            // gridColumnCardNumber
+            // 
+            this.gridColumnCardNumber.Caption = "Card Number";
+            this.gridColumnCardNumber.FieldName = "CardNumber";
+            this.gridColumnCardNumber.Name = "gridColumnCardNumber";
+            this.gridColumnCardNumber.Visible = true;
+            this.gridColumnCardNumber.VisibleIndex = 2;
             // 
             // CustomerListForm
             // 
@@ -178,5 +209,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonReverseActive;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnSurname;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCardNumber;
     }
 }

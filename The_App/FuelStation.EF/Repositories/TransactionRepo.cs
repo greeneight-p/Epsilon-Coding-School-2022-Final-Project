@@ -49,7 +49,7 @@ namespace FuelStation.EF.Repositories {
                 .SingleOrDefaultAsync(trans => trans.ID == id);
             if (foundTransaction is null)
                 throw new KeyNotFoundException($"Transaction id '{id}' was not found in database.!");
-            foundTransaction.CustomerID = entity.ID;
+            foundTransaction.CustomerID = entity.CustomerID;
             foundTransaction.EmployeeID = entity.EmployeeID;
             foundTransaction.PaymentMethod = entity.PaymentMethod;
             foundTransaction.Date=entity.Date;

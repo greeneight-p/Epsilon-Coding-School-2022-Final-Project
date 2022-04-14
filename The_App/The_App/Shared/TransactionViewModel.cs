@@ -13,6 +13,8 @@ namespace The_App.Shared {
         public DateTime Date { get; set; }
         public Guid EmployeeID { get; set; }
         public Guid CustomerID { get; set; }
+        public string? CustomerName { get; set; }
+        public string? EmployeeName { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public List<TransactionLineViewModel> TransactionLines { get; set; } = new();
         public decimal TotalValue { get; set; }
