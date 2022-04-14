@@ -13,6 +13,7 @@ namespace FuelStation.EF.Configurations {
             builder.ToTable("Transactions");
             builder.HasKey(trans => trans.ID);
             builder.Property(trans => trans.TotalValue).HasColumnType("decimal(10,2)");
+            builder.Property(trans => trans.TotalCost).HasColumnType("decimal(10,2)");
             //Relations
             builder.HasOne(trans=>trans.Employee).WithMany(employee=>employee.Transactions).HasForeignKey(trans=>trans.EmployeeID).OnDelete(DeleteBehavior.Restrict);    
             builder.HasOne(trans=>trans.Customer).WithMany(customer=>customer.Transactions).HasForeignKey(trans=>trans.CustomerID).OnDelete(DeleteBehavior.Restrict);    

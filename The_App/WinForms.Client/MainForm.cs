@@ -43,5 +43,10 @@ namespace WinForms.Client {
 
         private void Form_Closed(object? sender, FormClosedEventArgs e) {
         }
+
+        private void listToolStripMenuItem2_Click(object sender, EventArgs e) {
+            var transactionsForm = new TransactionListForm(_uri);
+            transactionsForm.ShowDialog();
+        }
     }
 }

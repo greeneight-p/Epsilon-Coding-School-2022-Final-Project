@@ -71,7 +71,7 @@
             // listToolStripMenuItem1
             // 
             this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
-            this.listToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
             this.listToolStripMenuItem1.Text = "List";
             this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
             // 
@@ -86,8 +86,9 @@
             // listToolStripMenuItem2
             // 
             this.listToolStripMenuItem2.Name = "listToolStripMenuItem2";
-            this.listToolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
+            this.listToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.listToolStripMenuItem2.Text = "List";
+            this.listToolStripMenuItem2.Click += new System.EventHandler(this.listToolStripMenuItem2_Click);
             // 
             // MainForm
             // 

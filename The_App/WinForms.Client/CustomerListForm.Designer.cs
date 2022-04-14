@@ -115,6 +115,7 @@
             // 
             this.gridViewCustomers.GridControl = this.gridControlCustomers;
             this.gridViewCustomers.Name = "gridViewCustomers";
+            this.gridViewCustomers.OptionsBehavior.Editable = false;
             // 
             // simpleButtonReverseActive
             // 

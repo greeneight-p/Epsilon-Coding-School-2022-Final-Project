@@ -18,6 +18,7 @@ builder.Services.AddScoped<IEntityRepo<Authentication>, AuthRepo>();
 builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
 builder.Services.AddScoped<IEntityRepo<Item>, ItemRepo>();
 builder.Services.AddScoped<IEntityRepo<Employee>, EmployeeRepo>();
+builder.Services.AddScoped<IEntityRepo<Transaction>, TransactionRepo>();
 
 
 
