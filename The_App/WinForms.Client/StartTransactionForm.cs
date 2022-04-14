@@ -45,7 +45,7 @@ namespace WinForms.Client {
         private void simpleButtonConfirm_Click(object sender, EventArgs e) {
 
             var customer = bsCustomers.Current as CustomerViewModel;
-            var employee = bsCustomers.Current as EmployeeViewModel;
+            var employee = bsEmployees.Current as EmployeeViewModel;
             if (customer is null || employee is null) return;
 
             var transactionDetailsForm = new TransactionDetailsForm(_uri, employee, customer);

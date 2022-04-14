@@ -57,6 +57,20 @@ namespace The_App.Server.Controllers {
                 TotalValue= transaction.TotalValue,
                 TransactionLines= transaction.TransactionLines
             };
+            foreach (var line in transaction.TransactionLines) {
+                dbTransaction.TransactionLines.Add(new TransactionLine()
+                {
+                    ID=Guid.NewGuid(),
+                    ItemID=line.ItemID,
+                    ItemPrice=line.ItemPrice,
+                    Quantity=line.Quantity,
+                    TotalValue=line.TotalValue,
+                    DiscountPercent=line.DiscountPercent,
+                    DiscountValue=line.DiscountValue,
+                    NetValue=line.NetValue,
+                    TransactionID=dbTransaction.ID
+                });
+            }
             await _transactionRepo.AddAsync(dbTransaction);
         }
 
@@ -80,7 +94,21 @@ namespace The_App.Server.Controllers {
             dbTransaction.PaymentMethod = transaction.PaymentMethod;
             dbTransaction.TotalValue=dbTransaction.TotalValue;
             dbTransaction.Date = transaction.Date;
-            dbTransaction.TransactionLines = transaction.TransactionLines;
+            dbTransaction.TransactionLines = new();
+            foreach (var line in transaction.TransactionLines) {
+                dbTransaction.TransactionLines.Add(new TransactionLine()
+                {
+                    ID = Guid.NewGuid(),
+                    ItemID = line.ItemID,
+                    ItemPrice = line.ItemPrice,
+                    Quantity = line.Quantity,
+                    TotalValue = line.TotalValue,
+                    DiscountPercent = line.DiscountPercent,
+                    DiscountValue = line.DiscountValue,
+                    NetValue = line.NetValue,
+                    TransactionID = dbTransaction.ID
+                });
+            }
             await _transactionRepo.UpdateAsync(transaction.ID, dbTransaction);
             return Ok();
         }

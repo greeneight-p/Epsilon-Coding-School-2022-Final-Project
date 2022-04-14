@@ -17,6 +17,5 @@ namespace The_App.Shared {
         public List<TransactionLine> TransactionLines { get; set; } = new();
         public decimal TotalValue { get; set; }
         public decimal TotalCost { get; set; }
-
     }
 }
