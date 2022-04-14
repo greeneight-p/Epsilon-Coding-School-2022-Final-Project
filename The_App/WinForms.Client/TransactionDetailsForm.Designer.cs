@@ -222,6 +222,7 @@
             this.simpleButtonConfirm.Size = new System.Drawing.Size(71, 41);
             this.simpleButtonConfirm.TabIndex = 16;
             this.simpleButtonConfirm.Text = "Confirm";
+            this.simpleButtonConfirm.Click += new System.EventHandler(this.simpleButtonConfirm_Click);
             // 
             // TransactionDetailsForm
             // 

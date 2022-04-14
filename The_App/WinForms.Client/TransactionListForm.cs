@@ -34,6 +34,7 @@ namespace WinForms.Client {
 
         private void simpleButtonNew_Click(object sender, EventArgs e) {
             var startTransaction = new StartTransactionForm(_uri);
+            startTransaction.FormClosed += new FormClosedEventHandler(Form_Closed);
             startTransaction.ShowDialog();
         }
 
@@ -49,7 +50,7 @@ namespace WinForms.Client {
         private async void simpleButtonReverseActiveTransactions_Click(object sender, EventArgs e) {
             _activeTransactions = !_activeTransactions;
             if (_activeTransactions) {
-                simpleButtonReverseActiveTransactions.Text = "Show Deleted Customers";
+                simpleButtonReverseActiveTransactions.Text = "Show Deleted Transactions";
                 simpleButtonDelete.Text = "Delete";
                 simpleButtonEdit.Enabled = true;
                 simpleButtonNew.Enabled = true;

@@ -14,7 +14,7 @@ namespace The_App.Shared {
         public Guid EmployeeID { get; set; }
         public Guid CustomerID { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
-        public List<TransactionLine> TransactionLines { get; set; } = new();
+        public List<TransactionLineViewModel> TransactionLines { get; set; } = new();
         public decimal TotalValue { get; set; }
         public decimal TotalCost { get; set; }
     }

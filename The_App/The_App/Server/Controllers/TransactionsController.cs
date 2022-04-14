@@ -23,8 +23,21 @@ namespace The_App.Server.Controllers {
                 EmployeeID = x.EmployeeID,
                 Date = x.Date,
                 PaymentMethod = x.PaymentMethod,
-                TotalValue=x.TotalValue,
-                TransactionLines = x.TransactionLines
+                TotalValue = x.TotalValue,
+                TotalCost = x.TotalCost,
+                TransactionLines = x.TransactionLines.Select(line => new TransactionLineViewModel()
+                {
+                    ID = Guid.NewGuid(),
+                    ItemID = line.ItemID,
+                    ItemPrice = line.ItemPrice,
+                    Quantity = line.Quantity,
+                    TotalValue = line.TotalValue,
+                    DiscountPercent = line.DiscountPercent,
+                    DiscountValue = line.DiscountValue,
+                    NetValue = line.NetValue,
+                    TransactionID = x.ID
+                }).ToList()
+
             });
         }
 
@@ -40,7 +53,19 @@ namespace The_App.Server.Controllers {
                 Date = x.Date,
                 PaymentMethod = x.PaymentMethod,
                 TotalValue = x.TotalValue,
-                TransactionLines = x.TransactionLines
+                TotalCost = x.TotalCost,
+                TransactionLines = x.TransactionLines.Select(line => new TransactionLineViewModel()
+                {
+                    ID = Guid.NewGuid(),
+                    ItemID = line.ItemID,
+                    ItemPrice = line.ItemPrice,
+                    Quantity = line.Quantity,
+                    TotalValue = line.TotalValue,
+                    DiscountPercent = line.DiscountPercent,
+                    DiscountValue = line.DiscountValue,
+                    NetValue = line.NetValue,
+                    TransactionID = x.ID
+                }).ToList()
             });
         }
 
@@ -49,26 +74,26 @@ namespace The_App.Server.Controllers {
             var dbTransaction = new Transaction
             {
                 ID = Guid.NewGuid(),
-                Status = transaction.Status,
-                CustomerID= transaction.CustomerID,
-                EmployeeID= transaction.EmployeeID,
-                PaymentMethod= transaction.PaymentMethod,
+                CustomerID = transaction.CustomerID,
+                EmployeeID = transaction.EmployeeID,
+                PaymentMethod = transaction.PaymentMethod,
                 Date = transaction.Date,
-                TotalValue= transaction.TotalValue,
-                TransactionLines= transaction.TransactionLines
+                TotalValue = transaction.TotalValue,
+                TotalCost = transaction.TotalCost,
+                TransactionLines = new()
             };
             foreach (var line in transaction.TransactionLines) {
                 dbTransaction.TransactionLines.Add(new TransactionLine()
                 {
-                    ID=Guid.NewGuid(),
-                    ItemID=line.ItemID,
-                    ItemPrice=line.ItemPrice,
-                    Quantity=line.Quantity,
-                    TotalValue=line.TotalValue,
-                    DiscountPercent=line.DiscountPercent,
-                    DiscountValue=line.DiscountValue,
-                    NetValue=line.NetValue,
-                    TransactionID=dbTransaction.ID
+                    ID = Guid.NewGuid(),
+                    ItemID = line.ItemID,
+                    ItemPrice = line.ItemPrice,
+                    Quantity = line.Quantity,
+                    TotalValue = line.TotalValue,
+                    DiscountPercent = line.DiscountPercent,
+                    DiscountValue = line.DiscountValue,
+                    NetValue = line.NetValue,
+                    TransactionID = dbTransaction.ID
                 });
             }
             await _transactionRepo.AddAsync(dbTransaction);
@@ -90,9 +115,9 @@ namespace The_App.Server.Controllers {
             if (dbTransaction == null) return NotFound();
             dbTransaction.ID = transaction.ID;
             dbTransaction.CustomerID = transaction.CustomerID;
-            dbTransaction.EmployeeID=transaction.EmployeeID;
+            dbTransaction.EmployeeID = transaction.EmployeeID;
             dbTransaction.PaymentMethod = transaction.PaymentMethod;
-            dbTransaction.TotalValue=dbTransaction.TotalValue;
+            dbTransaction.TotalValue = dbTransaction.TotalValue;
             dbTransaction.Date = transaction.Date;
             dbTransaction.TransactionLines = new();
             foreach (var line in transaction.TransactionLines) {

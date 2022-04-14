@@ -117,9 +117,16 @@ namespace WinForms.Client {
             }
         }
 
-
-
-
+        private async void simpleButtonConfirm_Click(object sender, EventArgs e) {
+            _transaction.TotalCost=_tLinesList.Sum(x=>x.TotalCost);
+            _transaction.TotalValue = _tLinesList.Sum(x => x.TotalValue);
+            _transaction.Date = DateTime.Now;
+            _transaction.EmployeeID = _employee.ID;
+            _transaction.CustomerID = _customer.ID;
+            _transaction.TransactionLines = _tLinesList;
+            await httpClient.PostAsJsonAsync("transactions",_transaction);
+            Close();
+        }
     }
 
 }
