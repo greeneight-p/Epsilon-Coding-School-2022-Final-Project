@@ -42,6 +42,8 @@
             this.lookUpEditPaymentMethod = new DevExpress.XtraEditors.LookUpEdit();
             this.bsTransaction = new System.Windows.Forms.BindingSource(this.components);
             this.simpleButtonRemoveLine = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonCheckout = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonConfirm = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlItems)).BeginInit();
@@ -85,9 +87,9 @@
             // 
             // simpleButtonClose
             // 
-            this.simpleButtonClose.Location = new System.Drawing.Point(4, 577);
+            this.simpleButtonClose.Location = new System.Drawing.Point(4, 566);
             this.simpleButtonClose.Name = "simpleButtonClose";
-            this.simpleButtonClose.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonClose.Size = new System.Drawing.Size(75, 41);
             this.simpleButtonClose.TabIndex = 4;
             this.simpleButtonClose.Text = "Close";
             this.simpleButtonClose.Click += new System.EventHandler(this.simpleButtonClose_Click);
@@ -139,7 +141,7 @@
             0,
             0,
             0});
-            this.spinEditQuantity.Location = new System.Drawing.Point(410, 322);
+            this.spinEditQuantity.Location = new System.Drawing.Point(410, 204);
             this.spinEditQuantity.Name = "spinEditQuantity";
             this.spinEditQuantity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -160,7 +162,7 @@
             // 
             this.labelQuantity.AutoSize = true;
             this.labelQuantity.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuantity.Location = new System.Drawing.Point(410, 296);
+            this.labelQuantity.Location = new System.Drawing.Point(410, 178);
             this.labelQuantity.Name = "labelQuantity";
             this.labelQuantity.Size = new System.Drawing.Size(76, 23);
             this.labelQuantity.TabIndex = 10;
@@ -168,7 +170,7 @@
             // 
             // simpleButtonAddItem
             // 
-            this.simpleButtonAddItem.Location = new System.Drawing.Point(409, 373);
+            this.simpleButtonAddItem.Location = new System.Drawing.Point(409, 255);
             this.simpleButtonAddItem.Name = "simpleButtonAddItem";
             this.simpleButtonAddItem.Size = new System.Drawing.Size(77, 93);
             this.simpleButtonAddItem.TabIndex = 11;
@@ -179,7 +181,7 @@
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTotal.Location = new System.Drawing.Point(493, 578);
+            this.labelTotal.Location = new System.Drawing.Point(570, 571);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(52, 25);
             this.labelTotal.TabIndex = 12;
@@ -187,27 +189,47 @@
             // 
             // lookUpEditPaymentMethod
             // 
-            this.lookUpEditPaymentMethod.Location = new System.Drawing.Point(734, 584);
+            this.lookUpEditPaymentMethod.Location = new System.Drawing.Point(761, 576);
             this.lookUpEditPaymentMethod.Name = "lookUpEditPaymentMethod";
             this.lookUpEditPaymentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditPaymentMethod.Size = new System.Drawing.Size(100, 20);
+            this.lookUpEditPaymentMethod.Size = new System.Drawing.Size(152, 20);
             this.lookUpEditPaymentMethod.TabIndex = 13;
             // 
             // simpleButtonRemoveLine
             // 
-            this.simpleButtonRemoveLine.Location = new System.Drawing.Point(410, 486);
+            this.simpleButtonRemoveLine.Location = new System.Drawing.Point(410, 368);
             this.simpleButtonRemoveLine.Name = "simpleButtonRemoveLine";
             this.simpleButtonRemoveLine.Size = new System.Drawing.Size(77, 44);
             this.simpleButtonRemoveLine.TabIndex = 14;
             this.simpleButtonRemoveLine.Text = "Remove Line";
             this.simpleButtonRemoveLine.Click += new System.EventHandler(this.simpleButtonRemoveLine_Click);
             // 
+            // simpleButtonCheckout
+            // 
+            this.simpleButtonCheckout.Location = new System.Drawing.Point(493, 566);
+            this.simpleButtonCheckout.Name = "simpleButtonCheckout";
+            this.simpleButtonCheckout.Size = new System.Drawing.Size(71, 41);
+            this.simpleButtonCheckout.TabIndex = 15;
+            this.simpleButtonCheckout.Text = "Checkout";
+            this.simpleButtonCheckout.Click += new System.EventHandler(this.simpleButtonCheckout_Click);
+            // 
+            // simpleButtonConfirm
+            // 
+            this.simpleButtonConfirm.Enabled = false;
+            this.simpleButtonConfirm.Location = new System.Drawing.Point(1036, 566);
+            this.simpleButtonConfirm.Name = "simpleButtonConfirm";
+            this.simpleButtonConfirm.Size = new System.Drawing.Size(71, 41);
+            this.simpleButtonConfirm.TabIndex = 16;
+            this.simpleButtonConfirm.Text = "Confirm";
+            // 
             // TransactionDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 613);
+            this.Controls.Add(this.simpleButtonConfirm);
+            this.Controls.Add(this.simpleButtonCheckout);
             this.Controls.Add(this.simpleButtonRemoveLine);
             this.Controls.Add(this.lookUpEditPaymentMethod);
             this.Controls.Add(this.labelTotal);
@@ -258,5 +280,7 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEditPaymentMethod;
         private BindingSource bsTransaction;
         private DevExpress.XtraEditors.SimpleButton simpleButtonRemoveLine;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonCheckout;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonConfirm;
     }
 }

@@ -71,10 +71,32 @@ namespace WinForms.Client {
             PopulateTransactionLine(transactionLine, item, qty);
             _tLinesList.Add(transactionLine);
             gridViewLines.RefreshData();
+            simpleButtonConfirm.Enabled = false;
+        }
+
+        private void simpleButtonRemoveLine_Click(object sender, EventArgs e) {
+            var line = bsTransactionLines.Current as TransactionLineViewModel;
+            if (line is null) return;
+            _tLinesList.Remove(line);
+            gridViewLines.RefreshData();
+            simpleButtonConfirm.Enabled = false;
         }
 
 
+        private void simpleButtonCheckout_Click(object sender, EventArgs e) {
+            simpleButtonConfirm.Enabled = true;
+            decimal total = _tLinesList.Sum(x => x.TotalValue);
+            labelTotal.Text = $"Total: {total}";
+            if (total > 50) {
+                lookUpEditPaymentMethod.EditValue = "CreditCard";
+                lookUpEditPaymentMethod.Enabled = false;
+            }
+            else {
+                lookUpEditPaymentMethod.Enabled = true;
+            }
 
+            labelTotal.Text = $"Total: {total}, {_transaction.PaymentMethod}";
+        }
 
         private void PopulateTransactionLine(TransactionLineViewModel line, ItemViewModel item, int qty) {
             line.ItemID = item.ID;
@@ -83,9 +105,7 @@ namespace WinForms.Client {
             line.ItemCost = item.Cost;
             line.TotalCost = qty * item.Cost;
             line.NetValue = qty * item.Price;
-            line.Quantity = qty;
-            if (item.ItemType == Enumerations.ItemType.Fuel &&
-                line.NetValue > 20) {
+            if (item.ItemType == Enumerations.ItemType.Fuel && line.NetValue > 20) {
                 line.DiscountPercent = 0.10m;
                 line.DiscountValue = line.NetValue * line.DiscountPercent;
                 line.TotalValue = line.NetValue - line.DiscountValue;
@@ -95,17 +115,11 @@ namespace WinForms.Client {
                 line.DiscountValue = 0;
                 line.TotalValue = line.NetValue;
             }
-
-
-
         }
 
-        private void simpleButtonRemoveLine_Click(object sender, EventArgs e) {
-            var line = bsTransactionLines.Current as TransactionLineViewModel;
-            if (line is null) return;
-            _tLinesList.Remove(line);
-            gridViewLines.RefreshData();
-        }
+
+
+
     }
 
 }
