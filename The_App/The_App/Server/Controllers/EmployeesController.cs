@@ -71,7 +71,7 @@ namespace The_App.Server.Controllers {
                 Name = employee.Name,
                 Surname = employee.Surname,
                 HireDate = DateTime.Now,
-                DismissDate = employee.DismissDate,
+                DismissDate = DateTime.MaxValue,
                 EmployeeType = employee.EmployeeType,
                 SalaryPerMonth= employee.SalaryPerMonth,    
             };
@@ -87,7 +87,7 @@ namespace The_App.Server.Controllers {
             }
             else {
                 dbEmployee.HireDate = DateTime.Now;
-                dbEmployee.DismissDate = DateTime.MinValue;
+                dbEmployee.DismissDate = DateTime.MaxValue;
             }
                 
             dbEmployee.Status = !dbEmployee.Status;
