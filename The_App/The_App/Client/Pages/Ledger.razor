@@ -1,0 +1,42 @@
+﻿@page "/ledger"
+@using The_App.Shared
+@using static FuelStation.Models.Enumerations
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
+
+
+
+<h3>Ledger</h3>
+
+<EditForm Model="@_ledgerViewModel">
+    <div class="">
+    <div class="form-group  col mb-2">
+        <label for="month">Pick A Month</label>
+        <InputSelect id="month" @bind-Value="_ledgerViewModel.Month" style="height: 30px;">                  
+                @foreach(var month in Enum.GetValues(typeof(MonthEnum))) {
+                <option value="@month">@month</option>            
+                }                              
+        </InputSelect>
+    </div>
+
+    <div class="form-group col mb-2" >
+        <label for="year">Pick A Year</label>
+        <input type="number" min="2022" step="1" id="year" @bind=_ledgerViewModel.Year />
+    </div>
+    <div class="form-group col mb-2" >
+        <label for="rent">Rent Value</label>
+        <input type="number" min="0" step="0.01" id="rent" @bind=_ledgerViewModel.Rent />
+    </div>
+    </div>
+</EditForm>
+
+    <button class="btn btn-primary" >Calculate</button> 
+
+@code {
+    private LedgerViewModel _ledgerViewModel = new()
+    {
+        Year=2022,
+        Month=MonthEnum.January
+    };
+
+}
